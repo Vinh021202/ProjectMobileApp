@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet , Pressable} from 'react-native';
 
-const OrderSummary = ({ route }) => {
+const OrderSummary = ({ route, navigation }) => {
   const {
     fullName,
     address,

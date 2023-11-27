@@ -65,7 +65,7 @@ const PaymentSuccessScreen = ({ navigation, route }) => {
                 justifyContent:'center',
                     alignItems:'center',
                  }}onPress={() => {
-                    navigation.navigate('Checkout1');
+                    navigation.navigate('Home');
                   }}
                  >
                 <Text style={{
@@ -75,7 +75,7 @@ const PaymentSuccessScreen = ({ navigation, route }) => {
                                     fontSize:14,
                                     fontStyle:'normal',
                                     fontWeight:700,
-                }}>Go to back home</Text>
+                }}>Quay Trở Lại Trang Chủ</Text>
             </Pressable>
         </View>
 
