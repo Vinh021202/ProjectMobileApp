@@ -1,0 +1,229 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "vinh",
+      "email": "vinh@gmail.com",
+      "password": "12345"
+    },
+    {
+      "email": "vinhtran@gmail.com",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "name": "vinhtran",
+      "email": "vinhtran2@gmail.com",
+      "password": "12345",
+      "id": 3
+    },
+    {
+      "name": "TranVinh",
+      "email": "tranvinh@gmail.com",
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "name": "vinhtran23",
+      "email": "vinhtran23@gmail.com",
+      "password": "12345",
+      "id": 5
+    }
+  ],
+  "products": [
+    {
+      "id": 0,
+      "type": "Burger",
+      "name": "Big boys Cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped"
+    },
+    {
+      "id": 1,
+      "type": "Burger",
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate"
+    },
+    {
+      "id": 2,
+      "type": "Pizza",
+      "name": "Medium cheese Pizza",
+      "price": 10,
+      "image": "https://img.pikbest.com/origin/09/21/06/709pIkbEsTJBE.png!sw800",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped"
+    },
+    {
+      "id": 3,
+      "type": "Pizza",
+      "name": "Big boys Cheese Pizza",
+      "price": 10,
+      "image": "https://img.pikbest.com/origin/09/21/03/49bpIkbEsTKm7.png!w700wp",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped"
+    },
+    {
+      "id": 4,
+      "type": "Sausage",
+      "name": "Medium cheese Sausage",
+      "price": 10,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Hotdog_-_Evan_Swigart.jpg",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped"
+    },
+    {
+      "id": 5,
+      "type": "Sausage",
+      "name": "Medium cheese Sausage",
+      "price": 10,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Hotdog_-_Evan_Swigart.jpg",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped"
+    },
+    {
+      "id": 6,
+      "type": "samosa",
+      "name": "Medium cheese samosa",
+      "price": 10,
+      "image": "https://yt3.googleusercontent.com/FP3uubo0hPTNUNjNOiHoLuMTSM3FNmItIECEwdNAyADrKH8L31vSrQCEgmdDtLe1iWu53JkUmYo=s900-c-k-c0x00ffffff-no-rj",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped"
+    },
+    {
+      "id": 7,
+      "type": "samosa",
+      "name": "Medium cheese samosa",
+      "price": 10,
+      "image": "https://yt3.googleusercontent.com/FP3uubo0hPTNUNjNOiHoLuMTSM3FNmItIECEwdNAyADrKH8L31vSrQCEgmdDtLe1iWu53JkUmYo=s900-c-k-c0x00ffffff-no-rj",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped"
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 8
+    },
+    {
+      "name": "Big boys Cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped",
+      "quantity": 1,
+      "id": 9
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 10
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 11
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 12
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 13
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 14
+    },
+    {
+      "name": "Medium cheese samosa",
+      "price": 10,
+      "image": "https://yt3.googleusercontent.com/FP3uubo0hPTNUNjNOiHoLuMTSM3FNmItIECEwdNAyADrKH8L31vSrQCEgmdDtLe1iWu53JkUmYo=s900-c-k-c0x00ffffff-no-rj",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped",
+      "quantity": 1,
+      "id": 15
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 16
+    }
+  ],
+  "cart": [
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 2,
+      "id": 1
+    },
+    {
+      "name": "Medium cheese Sausage",
+      "price": 10,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Hotdog_-_Evan_Swigart.jpg",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped",
+      "quantity": 1,
+      "id": 2
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 3
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 4
+    },
+    {
+      "name": "Medium cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "No 10 opp lekki phase 1 bridge in sangotedo estate",
+      "quantity": 1,
+      "id": 5
+    },
+    {
+      "name": "Big boys Cheese burger",
+      "price": 10,
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/2c/c3/bb/new-me-burger.jpg",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped",
+      "quantity": 3,
+      "id": 6
+    },
+    {
+      "name": "Medium cheese Pizza",
+      "price": 10,
+      "image": "https://img.pikbest.com/origin/09/21/06/709pIkbEsTJBE.png!sw800",
+      "description": "Our simple, classic cheeseburger begins with a 100% pure beef burger seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped",
+      "quantity": 1,
+      "id": 7
+    }
+  ]
+}
