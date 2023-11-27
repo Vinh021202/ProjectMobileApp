@@ -4,6 +4,12 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image , Pressable }
 const CartScreen = ({ navigation , route }) => {
     const [cartItems, setCartItems] = useState(route.params ? route.params.cartItems : []);
 
+    useEffect(() => {
+      navigation.setOptions({
+        headerShown: false,  // Ẩn header
+      });
+    }, [navigation]);
+
   useEffect(() => {
     // Lấy dữ liệu giỏ hàng khi thành phần được tạo
     fetchCartData();
@@ -84,6 +90,32 @@ const CartScreen = ({ navigation , route }) => {
 
   return (
     <View style={styles.container}>
+       <View style = {{
+                 flexDirection: "row",
+                 justifyContent: "space-between",
+                 alignItems: "center",
+                 marginTop : 15,
+            }}
+            >
+             <Pressable
+                style={{
+                    width : '10%',
+                    padding : 10,
+                    borderRadius : 20,
+                    marginTop : 15,
+                }}
+                onPress={()=>{
+                    navigation.navigate('Home')
+                }}>
+                  <Image
+                  source={require('../../assets/vecter.png')}
+                    style={{
+                      width : 15 , height : 15
+                    }}
+                  
+            />
+            </Pressable>
+            </View>
       <Text style={styles.title}>Giỏ hàng</Text>
       <FlatList
         data={cartItems}

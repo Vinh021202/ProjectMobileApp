@@ -55,18 +55,51 @@ const Home = ({ navigation , route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ margin: 20 }}>
-        <View>
-          <Pressable 
-            onPress={()=>{
-              navigation.navigate('MenuComponent')
-          }}>
-          <Image source={require('../../assets/Group.png')}
-           style = {{
-            width : 30 , height : 30
-           }} 
-          />
-          </Pressable>
-        </View>
+      <View style = {{
+                 flexDirection: "row",
+                 justifyContent: "space-between",
+                 alignItems: "center",
+                 marginTop : 15,
+            }}
+            >
+             <Pressable
+                style={{
+                    width : '10%',
+                    padding : 10,
+                    borderRadius : 20,
+                    marginTop : 15,
+                }}
+                onPress={()=>{
+                    navigation.navigate('MenuComponent')
+                }}>
+                  <Image
+                  source={require('../../assets/Group.png')}
+                    style={{
+                      width : 30 , height : 30
+                    }}
+                  
+            />
+            </Pressable>
+            
+            <Pressable
+                style={{
+                    width : '10%',
+                    padding : 10,
+                    borderRadius : 20,
+                    marginTop : 15,
+                }}
+                onPress={()=>{
+                    navigation.navigate('CartScreen');
+                }}>
+              <Image
+                    source={require('../../assets/IconGioHang.png')}
+                    style={{
+                        width: 30,
+                        height: 30,
+                    }}   
+            />
+            </Pressable>
+            </View>
         {/* Tieu de  */}
         <View style={{ flex: 1 }}>
           <Text>
@@ -190,7 +223,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   seeAllButton: {
-    backgroundColor: '#3498db',
+    backgroundColor: '#ff8c00',
     padding: 10,
     borderRadius: 5,
     alignItems: 'center',

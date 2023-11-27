@@ -95,10 +95,15 @@ const Checkout2 = ({ navigation , route}) => {
           />
         </View>
       </View>
+      <View style = {{
+          marginTop : 30,
+          paddingTop : 150,
+        }}>
       <View style={styles.buttonContainer}>
         <Pressable onPress={handlePayment} style={styles.button}>
           <Text style={styles.buttonText}>Thanh Toán </Text>
         </Pressable>
+      </View>
       </View>
     </SafeAreaView>
   );

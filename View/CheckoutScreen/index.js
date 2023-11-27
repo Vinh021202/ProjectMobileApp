@@ -2,6 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const CheckoutScreen = ({ navigation, route }) => {
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: false,  // Ẩn header
+    });
+  }, [navigation]);
+
+  
   const { cartItems } = route.params;
 
   // Calculate total price
@@ -13,8 +21,6 @@ const CheckoutScreen = ({ navigation, route }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Xác nhận thanh toán</Text>
       
-      {/* Display cart items or any other relevant information */}
-      {/* You can customize this section based on your requirements */}
       {cartItems.map((item) => (
         <View key={item.id} style={styles.cartItem}>
              <Image source={{ uri: item.image }} style={styles.productImage} />

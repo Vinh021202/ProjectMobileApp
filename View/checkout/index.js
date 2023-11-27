@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View, } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View,Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Checkout = ({ navigation }) => {
@@ -47,6 +47,31 @@ const Checkout = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style = {{
+                 flexDirection: "row",
+                 justifyContent: "space-between",
+                 alignItems: "center",
+            }}
+            >
+             <Pressable
+                style={{
+                    width : '10%',
+                    padding : 10,
+                    borderRadius : 20,
+                    marginTop : 15,
+                }}
+                onPress={()=>{
+                    navigation.navigate('Home')
+                }}>
+                  <Image
+                  source={require('../../assets/vecter.png')}
+                    style={{
+                      width : 15 , height : 15
+                    }}
+                  
+            />
+            </Pressable>
+            </View>
       <View style={styles.style1}>
         <h1>Vận chuyển</h1>
       </View>

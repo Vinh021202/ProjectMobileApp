@@ -3,6 +3,12 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, Pressable } from 'reac
 
 
 const ProductDetail = ({ route, navigation }) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: false,  // Ẩn header
+    });
+  }, [navigation]);
+  
   const { product } = route.params;
   const [quantity, setQuantity] = useState(1);
   
@@ -53,9 +59,51 @@ const ProductDetail = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-        <Text style={styles.backButtonText}>Back</Text>
-      </TouchableOpacity>
+        <View style = {{
+                 flexDirection: "row",
+                 justifyContent: "space-between",
+                 alignItems: "center",
+                 marginTop : 15,
+            }}
+            >
+             <Pressable
+                style={{
+                    width : '10%',
+                    padding : 10,
+                    borderRadius : 20,
+                    marginTop : 15,
+                }}
+                onPress={()=>{
+                    navigation.navigate('Home')
+                }}>
+                  <Image
+                  source={require('../../assets/vecter.png')}
+                    style={{
+                      width : 20 , height : 20
+                    }}
+                  
+            />
+            </Pressable>
+            
+            <Pressable
+                style={{
+                    width : '10%',
+                    padding : 10,
+                    borderRadius : 20,
+                    marginTop : 15,
+                }}
+                onPress={()=>{
+                    navigation.navigate('CartScreen');
+                }}>
+              <Image
+                    source={require('../../assets/IconGioHang.png')}
+                    style={{
+                        width: 30,
+                        height: 30,
+                    }}   
+            />
+            </Pressable>
+            </View>
       <Image source={{ uri: product.image }} style={styles.productImage} />
       <View style= {{
         

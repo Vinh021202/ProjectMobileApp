@@ -14,43 +14,47 @@ const OrderSummary = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>Order Summary</Text>
+      <Text style={styles.headerText}>Checkout</Text>
       <View style={styles.summaryContainer}>
         <View style={styles.row}>
-          <Text style={styles.label}>Full Name:</Text>
+          <Text style={styles.label}>Name:</Text>
           <Text style={styles.value}>{fullName}</Text>
         </View>
 
         <View style={styles.row}>
-          <Text style={styles.label}>Address:</Text>
+          <Text style={styles.label}>Địa Chỉ:</Text>
           <Text style={styles.value}>{address}</Text>
         </View>
 
         <View style={styles.row}>
-          <Text style={styles.label}>Phone Number:</Text>
+          <Text style={styles.label}>Số Điện Thoại:</Text>
           <Text style={styles.value}>{phoneNumber}</Text>
         </View>
 
         <View style={styles.row}>
-          <Text style={styles.label}>Card Number:</Text>
+          <Text style={styles.label}>Mã Thẻ:</Text>
           <Text style={styles.value}>{fullNumber}</Text>
         </View>
 
         <View style={styles.row}>
-          <Text style={styles.label}>Card Holder Name:</Text>
+          <Text style={styles.label}>Tên Chủ Thẻ:</Text>
           <Text style={styles.value}>{namestk}</Text>
         </View>
 
         <View style={styles.row}>
-          <Text style={styles.label}>Expiration Date:</Text>
+          <Text style={styles.label}>Date:</Text>
           <Text style={styles.value}>{date}</Text>
         </View>
 
         <View style={styles.row}>
-          <Text style={styles.label}>CVV:</Text>
+          <Text style={styles.label}>Cvv:</Text>
           <Text style={styles.value}>{CVV}</Text>
         </View>
       </View>
+      <View style = {{
+        marginTop : 30,
+        paddingTop : 150,
+      }}>
       <View style={styles.buttonContainer}>
         <Pressable onPress={() => {
                     navigation.navigate('PaymentSuccessScreen');
@@ -58,6 +62,7 @@ const OrderSummary = ({ route, navigation }) => {
         style={styles.button}>
           <Text style={styles.buttonText}>Xác Nhận Và tiếp tục </Text>
         </Pressable>
+      </View>
       </View>
     </View>
   );

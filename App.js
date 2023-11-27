@@ -30,7 +30,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-         {/* {isLoading ? (
+          {isLoading ? (
           <Stack.Screen name="Loading" component={Loading} options={{ headerShown: false }} />
         ) : (
           <Stack.Screen name="Login" component={Login} options={{ title: 'Đăng nhập' }} />
@@ -38,7 +38,7 @@ const App = () => {
            <Stack.Screen name="Signup" component={Signup} options={{Signup: false}}/>   
            <Stack.Screen name="Home" component={Home} options={{Home: false}}/> 
           <Stack.Screen name="MenuComponent" component={MenuComponent} options={{MenuComponent: false}}/> 
-           <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ProductDetail: false}}/>*/}
+           <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ProductDetail: false}}/>
              
             <Stack.Screen name="CartScreen" component={CartScreen} options={{CartScreen: false}}/> 
            <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} options={{CheckoutScreen: false}}/> 

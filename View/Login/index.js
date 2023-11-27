@@ -27,7 +27,10 @@ const Login = ({ navigation }) => {
         if (!data || data.length === 0){
             alert("Email hoặc tài khoản của bạn không chính xác");
         } else {
-            navigation.navigate("Home", {email: email});
+            navigation.navigate("Home", {
+              email: email,
+              password: password,
+            });
             setEmail("");
             setPassword("");
         }

@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, StyleSheet, Button} from "react-native";
+import { View, Text, Image, StyleSheet, Button , Pressable} from "react-native";
 
-const UserProfile = ({ loggedInUserId }) => {
+const MenuComponent = ({ navigation }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Fetch user information for the logged-in user
-    fetch(`http://localhost:3000/users/${loggedInUserId}`)
+    
+    fetch(`http://localhost:3000/users/${email}`)
       .then((response) => response.json())
       .then((data) => setUser(data))
       .catch((error) => console.error("Error fetching user:", error));
-  }, [loggedInUserId]);
-
-  // const handleLogout = () => {
-  //   // Thực hiện các hành động đăng xuất (ví dụ: xóa phiên người dùng, chuyển hướng đến màn hình đăng nhập)
-  //   // Bạn có thể gọi hàm onLogout để kích hoạt hành động đăng xuất trong thành phần cha
-  //   onLogout();
-  // };
+  }, [email]);
 
   if (!user) {
     return (
@@ -28,13 +22,25 @@ const UserProfile = ({ loggedInUserId }) => {
 
   return (
     <View style={styles.container}>
+        <View>
+          <Pressable 
+            onPress={()=>{
+              navigation.navigate('Home')
+          }}>
+          <Image source={require('../../assets/vecter.png')}
+           style = {{
+            width : 15 , height : 15
+           }} 
+          />
+          </Pressable>
+      </View>
     <Image source={require('../../assets/user.png')} style={styles.avatar} />
     <View style={styles.userInfo}>
       <Text style={styles.userName}>{user.name}</Text>
       <Text style={styles.userEmail}>{user.email}</Text>
     </View>
     <Button title="Đăng xuất" onPress={() => {
-                    navigation.navigate('Checkout1');
+                    navigation.navigate('Login');
                   }} />
   </View>
   );
@@ -65,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserProfile;
+export default MenuComponent;
