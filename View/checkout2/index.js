@@ -5,6 +5,8 @@ import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Checkout2 = ({ navigation , route}) => {
+
+  const { email } = route.params;
   const { fullName, address, phoneNumber } = route.params;
   const [fullNumber, setFullNumber] = useState('');
   const [namestk, setNamestk] = useState('');
@@ -20,7 +22,7 @@ const Checkout2 = ({ navigation , route}) => {
         CVV,
       };
 
-      const response = await fetch('http://localhost:3000/orders', {
+      const response = await fetch(`http://localhost:3000/users/${email}/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,13 +44,14 @@ const Checkout2 = ({ navigation , route}) => {
 
     // Sau khi tạo đơn hàng, bạn có thể chuyển hướng người dùng đến màn hình khác
     navigation.navigate('OrderSummary', {
+      email : route.params.email,
       fullName: route.params.fullName,
       address: route.params.address,
       phoneNumber: route.params.phoneNumber,
       CVV,
-      fullName, 
-      address, 
-      phoneNumber 
+      fullNumber,
+      namestk,
+      date,
     });
   };
 

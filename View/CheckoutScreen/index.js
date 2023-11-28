@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const CheckoutScreen = ({ navigation, route }) => {
+  const { email } = route.params;
 
   useEffect(() => {
     navigation.setOptions({
@@ -46,7 +47,7 @@ const CheckoutScreen = ({ navigation, route }) => {
         onPress={() => {
           // Implement the logic for processing the payment
           // After successful payment, you can navigate to a success screen
-          navigation.navigate('checkout');
+          navigation.navigate('checkout' , {email : route.params.email,});
         }}
       >
         <Text style={styles.checkoutButtonText}>Thanh toán ngay</Text>

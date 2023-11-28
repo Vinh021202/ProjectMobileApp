@@ -3,7 +3,9 @@ import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, TouchableOpacit
 import React, { useState, useEffect } from 'react';
 
 const Home = ({ navigation , route }) => {
-  
+  const { email ,  name} = route.params;
+
+
   useEffect(() => {
     navigation.setOptions({
       headerShown: false, // Ẩn header
@@ -31,6 +33,7 @@ const Home = ({ navigation , route }) => {
   const handleProductPress = (item) => {
     navigation.navigate('ProductDetail', {
       product: item, // Truyền thông tin sản phẩm khi chuyển màn hình
+      email : route.params.email
     });
   };
 
@@ -54,81 +57,48 @@ const Home = ({ navigation , route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ margin: 20 }}>
-      <View style = {{
-                 flexDirection: "row",
-                 justifyContent: "space-between",
-                 alignItems: "center",
-                 marginTop : 15,
-            }}
-            >
-             <Pressable
-                style={{
-                    width : '10%',
-                    padding : 10,
-                    borderRadius : 20,
-                    marginTop : 15,
-                }}
-                onPress={()=>{
-                    navigation.navigate('MenuComponent')
-                }}>
-                  <Image
-                  source={require('../../assets/Group.png')}
-                    style={{
-                      width : 30 , height : 30
-                    }}
-                  
-            />
-            </Pressable>
-            
-            <Pressable
-                style={{
-                    width : '10%',
-                    padding : 10,
-                    borderRadius : 20,
-                    marginTop : 15,
-                }}
-                onPress={()=>{
-                    navigation.navigate('CartScreen');
-                }}>
-              <Image
-                    source={require('../../assets/IconGioHang.png')}
-                    style={{
-                        width: 30,
-                        height: 30,
-                    }}   
-            />
-            </Pressable>
-            </View>
-        {/* Tieu de  */}
-        <View style={{ flex: 1 }}>
-          <Text>
-            <h1>Happy food</h1>
-          </Text>
-        </View>
-        {/* Menu */}
-        <View style={styles.menuContainer}>
-          {menuData.map(item => (
-            <TouchableOpacity
-              key={item.type}
-              style={[
-                styles.menuItem,
-                activeType === item.type && styles.activeMenuItem, // Thêm kiểm tra activeType để áp dụng màu xanh
-              ]}
-              onPress={() => handleMenuPress(item.type)}
-            >
-              <Image source={item.icon} style={styles.menuIcon} />
-              <Text>{item.label}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-        {/* View product */}
-        <View style={{ marginTop: 40 }}>
-          <View>
-            <Text>
-              <h2>Sản phẩm phổ biến</h2>
-            </Text>
-          </View>
+    <View style={styles.headerContainer}>
+      <Pressable
+        style={styles.headerIcon}
+        onPress={() => navigation.navigate('User', { email: route.params.email, name: route.params.name })}
+      >
+        <Image source={require('../../assets/Group.png')} style={styles.headerImage} />
+      </Pressable>
+
+      <Pressable
+        style={styles.headerIcon}
+        onPress={() => navigation.navigate('CartScreen', { email: route.params.email })}
+      >
+        <Image source={require('../../assets/IconGioHang.png')} style={styles.headerImage} />
+      </Pressable>
+    </View>
+
+    <View style={styles.titleContainer}>
+      <Text style={styles.title}>Happy food</Text>
+    </View>
+
+    <View style={styles.menuContainer}>
+      {menuData.map(item => (
+        <TouchableOpacity
+          key={item.type}
+          style={[styles.menuItem, activeType === item.type && styles.activeMenuItem]}
+          onPress={() => handleMenuPress(item.type)}
+        >
+          <Image source={item.icon} style={styles.menuIcon} />
+          <Text>{item.label}</Text>
+        </TouchableOpacity>
+      ))}
+    </View>
+
+    <View style={styles.productContainer}>
+      <View style={styles.sectionHeader}>
+        <Text style={styles.sectionTitle}>Sản phẩm phổ biến</Text>
+        {!showAll && (
+          <TouchableOpacity style={styles.seeAllButton} onPress={() => setShowAll(true)}>
+            <Text style={styles.seeAllText}>Xem tất cả</Text>
+          </TouchableOpacity>
+        )}
+      </View>
 
           <FlatList
             data={displayedProducts}
@@ -161,7 +131,6 @@ const Home = ({ navigation , route }) => {
           </View>
         </View>
         {/* View product */}
-      </View>
     </SafeAreaView>
   );
 }
@@ -170,6 +139,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F8FBFF',
+    margin: 20,
+  },
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 15,
+  },
+  headerIcon: {
+    width: '10%',
+    padding: 10,
+    borderRadius: 20,
+    marginTop: 15,
+  },
+  headerImage: {
+    width: 30,
+    height: 30,
+  },
+  titleContainer: {
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '700',
   },
   menuContainer: {
     flexDirection: 'row',
@@ -186,11 +178,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   activeMenuItem: {
-    backgroundColor: 'lightgreen', // Màu xanh khi mục được chọn
+    backgroundColor: 'lightgreen',
   },
   menuIcon: {
     width: 27,
     height: 27,
+  },
+  productContainer: {
+    marginTop: 40,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  seeAllButton: {
+    backgroundColor: '#ff8c00',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  seeAllText: {
+    color: '#FFF',
+    fontWeight: 'bold',
   },
   productCard: {
     width: '167px',
@@ -212,39 +227,9 @@ const styles = StyleSheet.create({
     fontSize: '15px',
     fontWeight: '400',
   },
-  popularProductsContainer: {
-    marginTop: 40,
-  },
-  popularProductCard: {
-    backgroundColor: '#FFF',
-    borderRadius: 30,
-    padding: 16,
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  seeAllButton: {
-    backgroundColor: '#ff8c00',
-    padding: 10,
-    borderRadius: 5,
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  seeAllText: {
-    color: '#FFF',
-    fontWeight: 'bold',
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  showAllText: {
-    color: '#3498db',
+  productPrice: {
+    fontSize: 14,
+    color: '#666',
   },
 });
 

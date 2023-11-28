@@ -4,12 +4,13 @@ import {LinearGradient} from 'expo-linear-gradient';
 
 
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation, route }) => {
     useEffect(() => {
         navigation.setOptions({
           headerShown: false,  // Ẩn header
         });
       }, [navigation]);
+  const [name , setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -30,6 +31,7 @@ const Login = ({ navigation }) => {
             navigation.navigate("Home", {
               email: email,
               password: password,
+              name : name,
             });
             setEmail("");
             setPassword("");

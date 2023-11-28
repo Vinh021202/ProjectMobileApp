@@ -1,8 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, Pressable, SafeAreaView } from 'react-native';
 
 
 const PaymentSuccessScreen = ({ navigation, route }) => {
+    useEffect(() => {
+        navigation.setOptions({
+          headerShown: false, // Ẩn header
+        });
+      }, [navigation]);
+
+    const { email } = route.params;
   return (
     <SafeAreaView style={styles.container}>
         <View style={{
@@ -65,7 +73,9 @@ const PaymentSuccessScreen = ({ navigation, route }) => {
                 justifyContent:'center',
                     alignItems:'center',
                  }}onPress={() => {
-                    navigation.navigate('Home');
+                    navigation.navigate('Home' , {
+                        email : route.params.email,
+                    });
                   }}
                  >
                 <Text style={{

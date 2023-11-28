@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image , Pressable }
 
 const CartScreen = ({ navigation , route }) => {
     const [cartItems, setCartItems] = useState(route.params ? route.params.cartItems : []);
+    const { email } = route.params;
 
     useEffect(() => {
       navigation.setOptions({
@@ -13,12 +14,12 @@ const CartScreen = ({ navigation , route }) => {
   useEffect(() => {
     // Lấy dữ liệu giỏ hàng khi thành phần được tạo
     fetchCartData();
-  }, []);
+  }, [email]);
 
   const fetchCartData = async () => {
     try {
       // Thay đổi URL API nếu cần thiết
-      const apiUrl = 'http://localhost:3000/cart';
+      const apiUrl = `http://localhost:3000/users/${email}/cart`;
       const response = await fetch(apiUrl);
       const data = await response.json();
       setCartItems(data);
@@ -32,18 +33,27 @@ const CartScreen = ({ navigation , route }) => {
     const updatedCart = cartItems.filter(item => item.id !== itemId);
     setCartItems(updatedCart);
   };
+  
   // Sữa
   const updateQuantity = (itemId, newQuantity) => {
+    // Đảm bảo giá trị mới không nhỏ hơn 1
+    newQuantity = Math.max(1, newQuantity);
+  
     const updatedCart = cartItems.map(item => {
       if (item.id === itemId) {
         return { ...item, quantity: newQuantity };
       }
       return item;
     });
+  
     setCartItems(updatedCart);
   };
+  
 
   const getTotalPrice = () => {
+    if (!cartItems || cartItems.length === 0) {
+      return 0;
+    }
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
@@ -105,7 +115,9 @@ const CartScreen = ({ navigation , route }) => {
                     marginTop : 15,
                 }}
                 onPress={()=>{
-                    navigation.navigate('Home')
+                    navigation.navigate('Home' , {
+                      email : route.params.email,
+                    })
                 }}>
                   <Image
                   source={require('../../assets/vecter.png')}
@@ -130,7 +142,7 @@ const CartScreen = ({ navigation , route }) => {
         style={styles.checkoutButton}
         onPress={() => {
           // Xử lý thanh toán
-          navigation.navigate('CheckoutScreen', { cartItems: cartItems });
+          navigation.navigate('CheckoutScreen', { cartItems: cartItems , email : route.params.email, });
         }}
       >
         <Text style={styles.checkoutButtonText}>Thanh toán</Text>

@@ -3,12 +3,23 @@ import React, { useState, useEffect } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View,Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const Checkout = ({ navigation }) => {
+const Checkout = ({ navigation,route}) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: false, // Ẩn header
+    });
+  }, [navigation]);
+
+
+  const { email } = route.params;
+
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const handlePayment = async () => {
+
+    
     try {
       const orderData = {
         fullName,
@@ -16,7 +27,7 @@ const Checkout = ({ navigation }) => {
         phoneNumber,
         // Add other order details as needed
       };
-     const response = await fetch('http://localhost:3000/orders', {
+     const response = await fetch(`http://localhost:3000/users/${email}/order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,6 +52,7 @@ const Checkout = ({ navigation }) => {
       fullName,
       address,
       phoneNumber,
+      email : route.params.email
     });
   };
 
@@ -58,10 +70,11 @@ const Checkout = ({ navigation }) => {
                     width : '10%',
                     padding : 10,
                     borderRadius : 20,
-                    marginTop : 15,
                 }}
                 onPress={()=>{
-                    navigation.navigate('Home')
+                    navigation.navigate('Home' , {
+                      email : route.params.email
+                    })
                 }}>
                   <Image
                   source={require('../../assets/vecter.png')}
@@ -77,65 +90,99 @@ const Checkout = ({ navigation }) => {
       </View>
       <View style={styles.style2}>
           <View style={{
-            flexDirection:'row',
-            justifyContent:'space-around',
-            alignItems:'center',
+          marginLeft:20,
           }}>
             <Text style={{
-                flexDirection:'row',
             }}>
               <h2>Chi Tiết Vận Chuyển</h2>
             </Text>
           </View>
           </View>
-      <View style={{ marginLeft: 20, marginRight: 20, marginTop: 10, marginBottom: 10 }}>
+            <View style = {styles.style3}>
+            <View style={{ marginLeft: 20, marginRight: 20, marginTop: 10, marginBottom: 10 }}>
         <Text style={{ fontFamily: 'Inter', fontSize: 14, fontStyle: 'normal', fontWeight: 600, lineHeight: '20px' }}>
           Họ tên
         </Text>
+        <View 
+          style = {{
+            backgroundColor:'#F5F5F5',
+                                    borderRadius:12,
+                                    height:56,
+                                    justifyContent:'center',
+                                    alignItems:'center',
+          }}
+        >
         <TextInput
           placeholder="Nguyen Van A"
           style={{
-            color: '#888',
-            backgroundColor: '#F5F5F5',
-            borderRadius: 12,
-            height: 56,
+            color:'#888',
+            height:20,
+            width:'90%',
           }}
           onChangeText={text => setFullName(text)}
           value={fullName}
         />
       </View>
-      <View style={{ marginLeft: 20, marginRight: 20, marginTop: 10, marginBottom: 10 }}>
+            </View>
+            </View>
+        <View style = {styles.style4}>
+        <View style={{ marginLeft: 20, marginRight: 20, marginTop: 10, marginBottom: 10 }}>
         <Text style={{ fontFamily: 'Inter', fontSize: 14, fontStyle: 'normal', fontWeight: 600, lineHeight: '20px' }}>
           Địa chỉ
         </Text>
+        <View style = {{
+             backgroundColor:'#F5F5F5',
+             borderRadius:12,
+             height:56,
+             justifyContent:'center',
+             alignItems:'center',
+        }}>
+
         <TextInput
           placeholder="Phuong 4, Quan Go Vap"
           style={{
-            color: '#888',
-            backgroundColor: '#F5F5F5',
-            borderRadius: 12,
-            height: 56,
+            color:'#888',
+            height:20,
+            width:'90%',
           }}
           onChangeText={text => setAddress(text)}
           value={address}
         />
       </View>
+      </View>
+      </View>
+      <View style = {{
+        flex : 1,
+      }}>
       <View style={{ marginLeft: 20, marginRight: 20, marginTop: 10, marginBottom: 10 }}>
         <Text style={{ fontFamily: 'Inter', fontSize: 14, fontStyle: 'normal', fontWeight: 600, lineHeight: '20px' }}>
           Số điện thoại
         </Text>
+        <View style={{
+                                    backgroundColor:'#F5F5F5',
+                                    borderRadius:12,
+                                    height:56,
+                                    justifyContent:'center',
+                                    alignItems:'center',
+                }}>
         <TextInput
-          placeholder=""
+          placeholder="0000000000"
           style={{
-            color: '#888',
-            backgroundColor: '#F5F5F5',
-            borderRadius: 12,
-            height: 56,
+            color:'#888',
+            height:20,
+            width:'90%',
           }}
           onChangeText={text => setPhoneNumber(text)}
           value={phoneNumber}
           keyboardType="phone-pad"
         />
+      </View>
+        </View>
+      </View>
+      
+      <View style={styles.style5}>
+
+
       </View>
       <View style={{
         flex:1,
@@ -151,13 +198,12 @@ const Checkout = ({ navigation }) => {
                 alignItems:'center',
         }} onPress={handlePayment}>
             <Text style={{
-                color:'#FFF',
-                textAlign:'center',
-                fontFamily:'Sk-Modernist',
-                fontSize:14,
-                fontStyle:'normal',
-                fontWeight:700,
-
+                     color:'#FFF',
+                     textAlign:'center',
+                     fontFamily:'Sk-Modernist',
+                     fontSize:14,
+                     fontStyle:'normal',
+                     fontWeight:700,
             }}>Thanh Toán </Text>
         </Pressable>
       </View>
@@ -173,7 +219,6 @@ const styles = StyleSheet.create({
   },
   style1:{
     flex:1,
-    marginTop:32,
     marginLeft:32,
     justifyContent:'center',
   },
@@ -184,12 +229,11 @@ const styles = StyleSheet.create({
     flex:1,
   },
   style4:{
-    flex:3,
+    flex:1,
   },
   style5:{
     flex:1,
     flexDirection:'row',
-    justifyContent:'space-around',
     justifyContent:'space-around',
   }
 

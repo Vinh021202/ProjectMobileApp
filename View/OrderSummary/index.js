@@ -10,7 +10,13 @@ const OrderSummary = ({ route, navigation }) => {
     namestk,
     date,
     CVV,
-  } = route.params;
+  } = route.params || {};
+  const { email } = route.params;
+
+  console.log('fullNumber:', fullNumber);
+  console.log('namestk:', namestk);
+  console.log('date:', date);
+
 
   return (
     <View style={styles.container}>
@@ -57,7 +63,7 @@ const OrderSummary = ({ route, navigation }) => {
       }}>
       <View style={styles.buttonContainer}>
         <Pressable onPress={() => {
-                    navigation.navigate('PaymentSuccessScreen');
+                    navigation.navigate('PaymentSuccessScreen' , {email : route.params.email,});
                   }}
         style={styles.button}>
           <Text style={styles.buttonText}>Xác Nhận Và tiếp tục </Text>

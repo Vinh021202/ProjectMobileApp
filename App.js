@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Loading from './View/Loading';
 import Login from './View/Login';
 import Home from './View/Home';
-import MenuComponent from './View/MenuComponent';
+import User from './View/User';
 import ProductDetail from './View/ProductDetail';
 import CartScreen from './View/CartScreen';
 import CheckoutScreen from './View/CheckoutScreen';
@@ -30,22 +30,24 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-          {isLoading ? (
+           {isLoading ? (
           <Stack.Screen name="Loading" component={Loading} options={{ headerShown: false }} />
         ) : (
           <Stack.Screen name="Login" component={Login} options={{ title: 'Đăng nhập' }} />
         )} 
            <Stack.Screen name="Signup" component={Signup} options={{Signup: false}}/>   
            <Stack.Screen name="Home" component={Home} options={{Home: false}}/> 
-          <Stack.Screen name="MenuComponent" component={MenuComponent} options={{MenuComponent: false}}/> 
+          <Stack.Screen name="User" component={User} options={{MenuComponent: false}}/> 
            <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ProductDetail: false}}/>
              
             <Stack.Screen name="CartScreen" component={CartScreen} options={{CartScreen: false}}/> 
-           <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} options={{CheckoutScreen: false}}/> 
-           <Stack.Screen name="PaymentSuccessScreen" component={PaymentSuccessScreen} options={{PaymentSuccessScreen: false}}/> 
+
+           <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} options={{CheckoutScreen: false}}/>   
            <Stack.Screen name="checkout" component={Checkout} options={{checkout: false}}/> 
            <Stack.Screen name="checkout2" component={checkout2} options={{checkout2: false}}/> 
-           <Stack.Screen name="OrderSummary" component={OrderSummary} options={{OrderSummary: false}}/> 
+           <Stack.Screen name="OrderSummary" component={OrderSummary} options={{OrderSummary: false}}/>
+            <Stack.Screen name="PaymentSuccessScreen" component={PaymentSuccessScreen} options={{PaymentSuccessScreen: false}}/> 
+            
       </Stack.Navigator>
     </NavigationContainer>
 

@@ -8,7 +8,7 @@ const ProductDetail = ({ route, navigation }) => {
       headerShown: false,  // Ẩn header
     });
   }, [navigation]);
-  
+  const { email } = route.params;
   const { product } = route.params;
   const [quantity, setQuantity] = useState(1);
   
@@ -24,7 +24,7 @@ const ProductDetail = ({ route, navigation }) => {
   };
   //thêm vào giỏ hàng
   const addToCart = async () => {
-    const apiUrl = 'http://localhost:3000/cart';
+    const apiUrl = `http://localhost:3000/users/${email}/cart`;
     const payload = {
       name: product.name,
       price: product.price,
@@ -54,7 +54,9 @@ const ProductDetail = ({ route, navigation }) => {
       // Xử lý lỗi khi gửi yêu cầu API
       console.error('Lỗi khi gửi yêu cầu API:', error);
     }
-    navigation.navigate('CartScreen')
+    navigation.navigate('CartScreen' , {
+      email : route.params.email,
+    })
   };
 
   return (
@@ -74,7 +76,7 @@ const ProductDetail = ({ route, navigation }) => {
                     marginTop : 15,
                 }}
                 onPress={()=>{
-                    navigation.navigate('Home')
+                    navigation.navigate('Home' ,{ email : route.params.email,})
                 }}>
                   <Image
                   source={require('../../assets/vecter.png')}
@@ -93,7 +95,7 @@ const ProductDetail = ({ route, navigation }) => {
                     marginTop : 15,
                 }}
                 onPress={()=>{
-                    navigation.navigate('CartScreen');
+                    navigation.navigate('CartScreen' , { email : route.params.email,});
                 }}>
               <Image
                     source={require('../../assets/IconGioHang.png')}
@@ -121,7 +123,9 @@ const ProductDetail = ({ route, navigation }) => {
       <View style={styles.productDetails}>
         <Text style={styles.productName}>{product.name}</Text>
         <Text style={styles.productDescription}>{product.description}</Text>
-        <Text style={styles.productPrice}>{`Giá: $${product.price.toFixed(2)}`}</Text>
+        {product && (
+      <Text style={styles.productPrice}>{`Giá: $${product.price ? product.price.toFixed(2) : 'N/A'}`}</Text>
+      )}
         <View style = {{
           paddingTop : 30,
         }}>
