@@ -104,7 +104,7 @@ const CartScreen = ({ navigation , route }) => {
                  flexDirection: "row",
                  justifyContent: "space-between",
                  alignItems: "center",
-                 marginTop : 15,
+                 marginTop : 5,
             }}
             >
              <Pressable
@@ -112,7 +112,7 @@ const CartScreen = ({ navigation , route }) => {
                     width : '10%',
                     padding : 10,
                     borderRadius : 20,
-                    marginTop : 15,
+                    marginTop : 5,
                 }}
                 onPress={()=>{
                     navigation.navigate('Home' , {

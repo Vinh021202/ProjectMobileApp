@@ -93,11 +93,6 @@ const Home = ({ navigation , route }) => {
     <View style={styles.productContainer}>
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>Sản phẩm phổ biến</Text>
-        {!showAll && (
-          <TouchableOpacity style={styles.seeAllButton} onPress={() => setShowAll(true)}>
-            <Text style={styles.seeAllText}>Xem tất cả</Text>
-          </TouchableOpacity>
-        )}
       </View>
 
           <FlatList
@@ -112,7 +107,8 @@ const Home = ({ navigation , route }) => {
                   <Text style={{ margin: 15 }}>Top 10 món ăn được yêu thích nhất</Text>
                   <View style={{flexDirection: "row",
                                 justifyContent: "space-between",
-                                alignItems: "center", }}>
+                                alignItems: "center",
+                                gap : 100, }}>
                     <Image source={require('../../assets/Star 1.png')} style={{ width: 14, height: 14, marginRight: 5 }} />
                     <Image source={require('../../assets/Heart.png')} style={{ width: 14, height: 14 }} />
                   </View>
@@ -199,9 +195,10 @@ const styles = StyleSheet.create({
   },
   seeAllButton: {
     backgroundColor: '#ff8c00',
-    padding: 10,
-    borderRadius: 5,
+    padding: 15,
+    borderRadius: 10,
     alignItems: 'center',
+    marginTop: 20,
   },
   seeAllText: {
     color: '#FFF',
@@ -210,7 +207,7 @@ const styles = StyleSheet.create({
   productCard: {
     width: '167px',
     height: '200px',
-    backgroundColor: '#F7BA8326',
+    backgroundColor: 'white',
     borderRadius: '10px',
     justifyContent: 'center',
     alignItems: 'center',

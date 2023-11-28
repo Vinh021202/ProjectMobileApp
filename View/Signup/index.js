@@ -84,7 +84,7 @@ const [confirmPassword, setConfirmPassword] = useState('');
       />
       </View>
       <View style={styles.inputContainer}>
-      <Text style={styles.inputLabel}>Nhập PassWord </Text>
+      <Text style={styles.inputLabel}>Nhập Password </Text>
       <TextInput
         style={styles.input}
         placeholder=""
@@ -94,7 +94,7 @@ const [confirmPassword, setConfirmPassword] = useState('');
       />
       </View>
       <View style={styles.inputContainer}>
-      <Text style={styles.inputLabel}>Nhập Lại PassWord </Text>
+      <Text style={styles.inputLabel}>Nhập Lại Password </Text>
       <TextInput
         style={styles.input}
         placeholder=""
@@ -106,12 +106,12 @@ const [confirmPassword, setConfirmPassword] = useState('');
       </View>
       
       <Pressable style={styles.button} onPress={handleSignup}>
-        <Text style={styles.buttonText}>Signup</Text>
+        <Text style={styles.buttonText}>Tạo Tài Khoản</Text>
       </Pressable>
       <TouchableOpacity style={styles.skipButton} 
             onPress={() => navigation.navigate("Login")}
         >
-          <Text style={styles.skipText}> Đăng Nhập Với Tài Khoản có sẵn</Text>
+          <Text style={styles.skipText}> Đăng nhập với tài khoản có sẵn</Text>
         </TouchableOpacity>
     </LinearGradient>
   );
@@ -172,8 +172,9 @@ const styles = StyleSheet.create({
     textAlign : 'center',
   },
   skipText: {
-    fontSize: 22,
-    color: 'red', // Match the skip text color to the image
+    fontSize: 15,
+    color: 'red',
+    textAlign : 'center',
   },
 });
 

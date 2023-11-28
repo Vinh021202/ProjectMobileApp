@@ -10,7 +10,6 @@ const CheckoutScreen = ({ navigation, route }) => {
     });
   }, [navigation]);
 
-  
   const { cartItems } = route.params;
 
   // Calculate total price
@@ -21,16 +20,14 @@ const CheckoutScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Xác nhận thanh toán</Text>
-      
+
       {cartItems.map((item) => (
         <View key={item.id} style={styles.cartItem}>
-             <Image source={{ uri: item.image }} style={styles.productImage} />
-        <View style = {{
-            alignItems : 'flex-start',
-        }}>
-        <Text style={styles.itemName}>{item.name}</Text>
-        <Text style={styles.itemPrice}>{`$${(item.price * item.quantity).toFixed(2)}`}</Text>
-        </View>
+          <Image source={{ uri: item.image }} style={styles.productImage} />
+          <View style={styles.itemDetails}>
+            <Text style={styles.itemName}>{item.name}</Text>
+            <Text style={styles.itemPrice}>{`$${(item.price * item.quantity).toFixed(2)}`}</Text>
+          </View>
         </View>
       ))}
 
@@ -40,14 +37,14 @@ const CheckoutScreen = ({ navigation, route }) => {
       </View>
 
       {/* Add any additional fields for user information, e.g., address, payment method, etc. */}
-      
+
       {/* Checkout button */}
       <TouchableOpacity
         style={styles.checkoutButton}
         onPress={() => {
           // Implement the logic for processing the payment
           // After successful payment, you can navigate to a success screen
-          navigation.navigate('checkout' , {email : route.params.email,});
+          navigation.navigate('checkout', { email: route.params.email });
         }}
       >
         <Text style={styles.checkoutButtonText}>Thanh toán ngay</Text>
@@ -60,33 +57,43 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   cartItem: {
-    flexDirection: "row",
-    flex: 1,
-    alignItems: "center",
-    gap: 20
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 10,
   },
   productImage: {
     width: 80,
     height: 80,
     borderRadius: 10,
     marginRight: 10,
-    marginTop: 10,
+  },
+  itemDetails: {
+    flex: 1,
   },
   itemName: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   itemPrice: {
     fontSize: 14,
-    fontWeight: "bold",
-    color: "red",
+    fontWeight: 'bold',
+    color: 'red',
   },
   totalContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+    paddingTop: 10,
   },
   totalLabel: {
     fontSize: 18,

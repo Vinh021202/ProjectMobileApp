@@ -63,6 +63,7 @@ const Checkout = ({ navigation,route}) => {
                  flexDirection: "row",
                  justifyContent: "space-between",
                  alignItems: "center",
+                 marginTop : 15,
             }}
             >
              <Pressable

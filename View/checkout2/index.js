@@ -1,10 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Pressable, StyleSheet, Text, TextInput, View , Image } from 'react-native';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Checkout2 = ({ navigation , route}) => {
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: false,  // Ẩn header
+    });
+  }, [navigation]);
 
   const { email } = route.params;
   const { fullName, address, phoneNumber } = route.params;
@@ -57,6 +63,33 @@ const Checkout2 = ({ navigation , route}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+          <View style = {{
+                 flexDirection: "row",
+                 justifyContent: "space-between",
+                 alignItems: "center",
+                 marginTop : 10,
+            }}
+            >
+             <Pressable
+                style={{
+                    width : '10%',
+                    padding : 10,
+                    borderRadius : 20,
+                }}
+                onPress={()=>{
+                    navigation.navigate('checkout' , {
+                      email : route.params.email
+                    })
+                }}>
+                  <Image
+                  source={require('../../assets/vecter.png')}
+                    style={{
+                      width : 17 , height : 17
+                    }}
+                  
+            />
+            </Pressable>
+            </View>
       <View style={styles.header}>
         <Text style={styles.headerText}>Phương thức thanh toán</Text>
       </View>
@@ -128,6 +161,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginBottom: 20,
+    margin : 20,
   },
   rowContainer: {
     flexDirection: 'row',

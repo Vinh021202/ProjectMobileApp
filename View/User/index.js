@@ -50,7 +50,7 @@ const MenuComponent = ({ navigation, route }) => {
         console.log('click');
         }}>
           <Text style={styles.menuItemText}>Giỏ hàng</Text>
-          <Image source={require('../../assets/IconGioHang.png')} style={styles.arrowIcon} />
+          <Image source={require('../../assets/vecter1.jpg')} style={styles.arrowIcon} />
         </Pressable>
       </View>
 
@@ -140,7 +140,8 @@ const styles = StyleSheet.create({
   },
   userEmail: {
     color: '#FFF',
-    fontSize: 14,
+    fontSize: 20,
+    fontWeight : 'bold',
   },
   menuItem: {
     height: 60,

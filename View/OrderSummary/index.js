@@ -1,7 +1,13 @@
-import React from 'react';
-import { View, Text, StyleSheet , Pressable} from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image, ScrollView } from 'react-native';
+import React, { useEffect } from 'react';
 
 const OrderSummary = ({ route, navigation }) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: false,  // Ẩn header
+    });
+  }, [navigation]);
+
   const {
     fullName,
     address,
@@ -13,13 +19,27 @@ const OrderSummary = ({ route, navigation }) => {
   } = route.params || {};
   const { email } = route.params;
 
-  console.log('fullNumber:', fullNumber);
-  console.log('namestk:', namestk);
-  console.log('date:', date);
-
-
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 15 }}>
+        <Pressable
+          style={{
+            width: '10%',
+            padding: 10,
+            borderRadius: 20,
+          }}
+          onPress={() => {
+            navigation.navigate('Home', { email: route.params.email });
+          }}
+        >
+          <Image
+            source={require('../../assets/vecter.png')}
+            style={{
+              width: 15, height: 15
+            }}
+          />
+        </Pressable>
+      </View>
       <Text style={styles.headerText}>Checkout</Text>
       <View style={styles.summaryContainer}>
         <View style={styles.row}>
@@ -57,20 +77,21 @@ const OrderSummary = ({ route, navigation }) => {
           <Text style={styles.value}>{CVV}</Text>
         </View>
       </View>
-      <View style = {{
-        marginTop : 30,
-        paddingTop : 150,
-      }}>
+
       <View style={styles.buttonContainer}>
-        <Pressable onPress={() => {
-                    navigation.navigate('PaymentSuccessScreen' , {email : route.params.email,});
-                  }}
-        style={styles.button}>
-          <Text style={styles.buttonText}>Xác Nhận Và tiếp tục </Text>
+        <Pressable
+          onPress={() => {
+            navigation.navigate('PaymentSuccessScreen', { email: route.params.email });
+          }}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Xác Nhận Và Tiếp Tục</Text>
         </Pressable>
       </View>
-      </View>
-    </View>
+
+      {/* Khoảng cách giữa nút và đáy màn hình */}
+      <View style={{ height: 30 }} />
+    </ScrollView>
   );
 };
 
@@ -81,10 +102,11 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   headerText: {
-    fontFamily: 'Sk-Modernist',
+    fontFamily: 'Sk-Modernist-Bold',
     fontSize: 24,
     fontWeight: '700',
     marginBottom: 20,
+    alignItems : 'center',
   },
   summaryContainer: {
     backgroundColor: '#FFF',
@@ -98,20 +120,23 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   label: {
-    fontFamily: 'Inter',
-    fontSize: 14,
+    fontFamily: 'Inter-Bold',
+    fontSize: 17,
     fontWeight: '600',
+    color: '#444',
+    margin : 5,
   },
   value: {
-    fontFamily: 'Inter',
-    fontSize: 16,
-    flexShrink: 1, // Allow text to shrink if it overflows
+    fontFamily: 'Inter-Regular',
+    fontSize: 17,
+    flexShrink: 1,
     marginLeft: 8,
+    color: '#333',
   },
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginTop: 120,
   },
   button: {
     borderRadius: 20,
@@ -124,7 +149,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFF',
     textAlign: 'center',
-    fontFamily: 'Sk-Modernist',
+    fontFamily: 'Sk-Modernist-Bold',
     fontSize: 14,
     fontWeight: '700',
   },
