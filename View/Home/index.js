@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
 const Home = ({ navigation , route }) => {
@@ -89,12 +89,11 @@ const Home = ({ navigation , route }) => {
         </TouchableOpacity>
       ))}
     </View>
-
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
     <View style={styles.productContainer}>
       <View style={styles.sectionHeader}>
         <Text style={styles.sectionTitle}>Sản phẩm phổ biến</Text>
       </View>
-
           <FlatList
             data={displayedProducts}
             numColumns={4}
@@ -116,8 +115,12 @@ const Home = ({ navigation , route }) => {
               </TouchableOpacity>
             )}
           />
-            <View style = {{
-                paddingTop : 30,
+          
+        </View>
+        </ScrollView>
+        <View style = {{
+                paddingTop : 10,
+                flex : 1,
             }}>
           {!showAll && (
             <TouchableOpacity style={styles.seeAllButton} onPress={() => setShowAll(true)}>
@@ -125,7 +128,6 @@ const Home = ({ navigation , route }) => {
             </TouchableOpacity>
           )}
           </View>
-        </View>
         {/* View product */}
     </SafeAreaView>
   );
@@ -134,8 +136,10 @@ const Home = ({ navigation , route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8FBFF',
-    margin: 20,
+    backgroundColor: '#FFFFFF',
+    padding : 10,
+    margin: 10,
+
   },
   headerContainer: {
     flexDirection: "row",
@@ -207,7 +211,7 @@ const styles = StyleSheet.create({
   productCard: {
     width: '167px',
     height: '200px',
-    backgroundColor: 'white',
+    backgroundColor: '#faf0e6',
     borderRadius: '10px',
     justifyContent: 'center',
     alignItems: 'center',
