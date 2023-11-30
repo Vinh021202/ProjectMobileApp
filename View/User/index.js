@@ -34,15 +34,6 @@ const MenuComponent = ({ navigation, route }) => {
         </View>
       </View>
 
-      <View style={styles.menuItem}>
-        <Pressable style={styles.menuItemPressable}
-        onPress={()=> {navigation.navigate('OrderSummary', {email});
-          console.log('click');
-        }}>
-          <Text style={styles.menuItemText}>Thông tin cá nhân</Text>
-          <Image source={require('../../assets/vecter1.jpg')} style={styles.arrowIcon} />
-        </Pressable>
-      </View>
 
       <View style={styles.menuItem}>
         <Pressable style={styles.menuItemPressable}
@@ -54,15 +45,6 @@ const MenuComponent = ({ navigation, route }) => {
         </Pressable>
       </View>
 
-      <View style={styles.menuItem}>
-        <Pressable style={styles.menuItemPressable}
-        onPress={()=> {navigation.navigate('Checkout2', {email})
-         console.log('click');
-        }}>
-          <Text style={styles.menuItemText}>Phương thức thanh toán</Text>
-          <Image source={require('../../assets/vecter1.jpg')} style={styles.arrowIcon} />
-        </Pressable>
-      </View>
 
       <View style={styles.menuItem}>
         <Pressable style={styles.menuItemPressable} onPress={openLink}>

@@ -12,7 +12,7 @@ const CheckoutScreen = ({ navigation, route }) => {
 
   const { cartItems } = route.params;
 
-  // Calculate total price
+
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
@@ -32,19 +32,15 @@ const CheckoutScreen = ({ navigation, route }) => {
       ))}
 
       <View style={styles.totalContainer}>
-        <Text style={styles.totalLabel}>Tổng cộng:</Text>
+        <Text style={styles.totalLabel}>Thành Tiền:</Text>
         <Text style={styles.totalPrice}>{`$${getTotalPrice()}`}</Text>
       </View>
 
-      {/* Add any additional fields for user information, e.g., address, payment method, etc. */}
-
-      {/* Checkout button */}
       <TouchableOpacity
         style={styles.checkoutButton}
         onPress={() => {
-          // Implement the logic for processing the payment
-          // After successful payment, you can navigate to a success screen
-          navigation.navigate('checkout', { email: route.params.email });
+      
+          navigation.navigate('checkout', { email: route.params.email,  totalPrice: getTotalPrice(), });
         }}
       >
         <Text style={styles.checkoutButtonText}>Thanh toán ngay</Text>

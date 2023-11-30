@@ -17,7 +17,7 @@ const OrderSummary = ({ route, navigation }) => {
     date,
     CVV,
   } = route.params || {};
-  const { email } = route.params;
+  const { email, totalPrice } = route.params;
 
   return (
     <ScrollView style={styles.container}>
@@ -75,6 +75,11 @@ const OrderSummary = ({ route, navigation }) => {
         <View style={styles.row}>
           <Text style={styles.label}>Cvv:</Text>
           <Text style={styles.value}>{CVV}</Text>
+        </View>
+
+        <View style={styles.row}>
+          <Text style={styles.label}>Thành Tiền :</Text>
+          <Text style={styles.value}>{`${totalPrice}`}</Text>
         </View>
       </View>
 

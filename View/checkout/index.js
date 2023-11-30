@@ -11,7 +11,7 @@ const Checkout = ({ navigation,route}) => {
   }, [navigation]);
 
 
-  const { email } = route.params;
+  const { email, totalPrice } = route.params;
 
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
@@ -52,7 +52,8 @@ const Checkout = ({ navigation,route}) => {
       fullName,
       address,
       phoneNumber,
-      email : route.params.email
+      email : route.params.email,
+      totalPrice : route.params.totalPrice,
     });
   };
 
@@ -63,7 +64,7 @@ const Checkout = ({ navigation,route}) => {
                  flexDirection: "row",
                  justifyContent: "space-between",
                  alignItems: "center",
-                 marginTop : 15,
+                 marginTop : 10,
             }}
             >
              <Pressable
@@ -94,8 +95,9 @@ const Checkout = ({ navigation,route}) => {
           marginLeft:20,
           }}>
             <Text style={{
+              textAlign : 'center',
             }}>
-              <h2>Chi Tiết Vận Chuyển</h2>
+              <h2> Chi Tiết Vận Chuyển</h2>
             </Text>
           </View>
           </View>

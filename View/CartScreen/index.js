@@ -135,7 +135,7 @@ const CartScreen = ({ navigation , route }) => {
         renderItem={renderCartItem}
       />
       <View style={styles.totalContainer}>
-        <Text style={styles.totalLabel}>Tổng cộng:</Text>
+        <Text style={styles.totalLabel}>Thành Tiền:</Text>
         <Text style={styles.totalPrice}>{`$${getTotalPrice().toFixed(2)}`}</Text>
       </View>
       <TouchableOpacity

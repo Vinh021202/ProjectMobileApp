@@ -12,7 +12,7 @@ const Checkout2 = ({ navigation , route}) => {
     });
   }, [navigation]);
 
-  const { email } = route.params;
+  const { email , totalPrice } = route.params;
   const { fullName, address, phoneNumber } = route.params;
   const [fullNumber, setFullNumber] = useState('');
   const [namestk, setNamestk] = useState('');
@@ -51,6 +51,7 @@ const Checkout2 = ({ navigation , route}) => {
     // Sau khi tạo đơn hàng, bạn có thể chuyển hướng người dùng đến màn hình khác
     navigation.navigate('OrderSummary', {
       email : route.params.email,
+      totalPrice : route.params.totalPrice,
       fullName: route.params.fullName,
       address: route.params.address,
       phoneNumber: route.params.phoneNumber,
