@@ -4,8 +4,8 @@
 
 
 ## Technologies Used
-- **Frontend:** JavaScript, SCSS, HTML
-- **Backend:** Java, Starlark
+- **Frontend:** : ReactJS
+- **Backend:** ReactJS
 
 ### Prerequisites
 - **Node.js** (for web and mobile)
