@@ -5,7 +5,7 @@
 
 ## Technologies Used
 - **Frontend:** : ReactJS
-- **Backend:** ReactJS
+- **Backend:** Nodejs
 
 ### Prerequisites
 - **Node.js** (for web and mobile)
